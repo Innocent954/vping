@@ -1,0 +1,74 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.experience {
+    background-image: url('../assets/backgrounds/experience-ellipse.svg');
+    background-repeat: no-repeat;
+    background-position-x: 99%;
+    padding-top: $spacing-xl;
+    padding-bottom: $spacing-xl;
+
+    &__window {
+        padding-top: 60px;
+        padding-bottom: 70px;
+        padding-left: 40px;
+        padding-right: 40px;
+        border-radius: $radius-default;
+        box-shadow: $shadow-experience;
+        background-color: $color-white;
+
+        > h2 {
+            text-align: center;
+            font-size: $font-size-xlarge;
+            font-weight: 700;
+            line-height: 130%;
+            margin-bottom: 48px;
+        }
+
+        &_illustrations {
+            display: flex;
+            flex-direction: row;
+            gap: 28px;
+
+            &-icon {
+                @include flex-column;
+                max-width: 223px;
+                align-items: center;
+            }
+
+            h5 {
+                font-size: $font-size-medium;
+                font-weight: 600;
+                line-height: 162%;
+                margin-bottom: 7px;
+            }
+
+            p {
+                font-size: $font-size-small;
+                line-height: 162%;
+                text-align: center;
+            }
+
+            img {
+                margin: 0 auto;
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .experience__window_illustrations {
+        align-items: center;
+        flex-direction: column;
+        gap: 28px;
+    }
+}
+
+@media (max-width: 360px) {
+    .experience__window {
+        width: auto;
+    }
+    .experience__window > h2 {
+        font-size: $font-size-medium;
+    }
+}

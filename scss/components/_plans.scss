@@ -1,0 +1,216 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.plans {
+    > h2 {
+        color: $color-text-dark;
+        font-size: $font-size-xlarge;
+        font-weight: 800;
+        line-height: 130%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    > p {
+        color: $color-text-gray;
+        line-height: 173%;
+        font-size: $font-size-base;
+        text-align: center;
+        margin-bottom: 65px;
+    }
+
+    &__cards {
+        display: flex;
+        flex-direction: row;
+        gap: 25px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    &__card {
+        padding: 66px 40px;
+        border-radius: $radius-large;
+        max-width: 335px;
+        background-color: $color-white;
+        border: 1px solid transparent;
+        box-shadow: none;
+        transition: $transition-default;
+
+        &:hover {
+            transform: translateY(-2px);
+        }
+
+        &-badge {
+            color: $color-purple;
+            line-height: 162%;
+            font-size: $font-size-xsmall;
+            font-weight: 500;
+            padding: 8px 14px;
+            background-color: $bg-purple-light;
+            border-radius: 5px;
+            border: 0;
+            margin-bottom: 42px;
+        }
+
+        > p:nth-of-type(1) {
+            color: $color-text-dark;
+            font-size: $font-size-base;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        &-price-month {
+            > span {
+                line-height: 130%;
+
+                &:nth-of-type(1) {
+                    font-weight: 800;
+                    font-size: $font-size-large;
+                    margin-bottom: 3px;
+                    line-height: 160%;
+                }
+            }
+        }
+
+        &-price-total {
+            display: flex;
+            gap: 30px;
+            line-height: 162%;
+            margin-bottom: 2px;
+
+            > span {
+                &:nth-of-type(1) {
+                    font-weight: 500;
+                }
+
+                &:nth-of-type(2) {
+                    text-decoration: line-through;
+                    color: $color-text-light;
+                    font-weight: 500;
+                }
+            }
+        }
+
+        &-billing {
+            color: $color-text-light;
+            font-size: $font-size-xsmall;
+            margin-bottom: 40px;
+        }
+
+        &-benefits {
+            @include flex-column;
+            gap: 13px;
+            margin-bottom: 45px;
+
+            > div {
+                align-items: center;
+                display: flex;
+                gap: 10px;
+                color: $color-text-light;
+                font-size: $font-size-small;
+                line-height: 162%;
+            }
+        }
+
+        &-subscribe {
+            color: $color-secondary;
+            background-color: $color-white;
+            border: 1px solid $color-secondary;
+            padding: 12px 87px;
+            border-radius: $radius-default;
+            font-weight: 700;
+            margin: 0 auto;
+            transition: $transition-default;
+
+            &:active {
+                transform: scale(0.99);
+                transition: $transition-fast;
+            }
+            &:hover {
+                cursor: pointer;
+            }
+
+            &--primary {
+                color: $color-secondary;
+                background-color: $color-white;
+                border-color: $color-secondary;
+            }
+        }
+
+        &--popular {
+            .plans__card-badge {
+                color: $color-secondary;
+                background-color: $bg-teal-light;
+            }
+            .plans__card-badge:hover {
+                background-color: $color-secondary;
+                color: $color-white;
+                cursor: pointer;
+                transition: $transition-default;
+            }
+            
+
+            .plans__card-price-total > span:nth-of-type(1) {
+                color: $color-secondary;
+                font-weight: 500;
+            }
+        }
+
+        &--popular:hover {
+            border-color: $color-secondary;
+            background: linear-gradient(#27beaf00 20%, #01bdaa57 350%);
+
+            .plans__card-subscribe {
+                background-color: $color-secondary;
+                color: $color-white;
+                border-color: $color-secondary;
+            }
+        }
+
+        &--basic {
+            .plans__card-badge {
+                color: $color-pink;
+                background-color: $bg-pink-light;
+            }
+
+            .plans__card-billing {
+                margin-bottom: 69px;
+            }
+        }
+
+        &--basic:hover {
+            border-color: #FE356F;
+            background: linear-gradient(#FE356F00 20%, #FE356F57 350%);
+
+            .plans__card-subscribe {
+                background-color: $color-secondary;
+                color: $color-white;
+                border-color: $color-secondary;
+            }
+        }
+
+        &--premium {
+            .plans__card-badge {
+                color: $color-purple;
+                background-color: $bg-purple-light;
+            }
+        }
+
+        &--premium:hover {
+            border-color: #410182;
+            background: linear-gradient(#42018200 20%, #41018257 350%);
+
+            .plans__card-subscribe {
+                background-color: $color-secondary;
+                color: $color-white;
+                border-color: $color-secondary;
+            }
+        }
+    }
+}
+
+@media (max-width: 360px) {
+    .plans > h2 {
+        font-size: $font-size-medium;
+    }
+}

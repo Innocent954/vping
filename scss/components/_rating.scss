@@ -1,0 +1,172 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.rating {
+    margin-bottom: 160px;
+
+    h1 {
+        font-size: $font-size-xlarge;
+        font-weight: 700;
+        line-height: 130%;
+        color: $color-text-dark;
+        margin-bottom: 31px;
+    }
+
+    > p {
+        font-size: $font-size-base;
+        line-height: 173%;
+        color: $color-text-gray;
+    }
+
+    &__container {
+        display: flex;
+        flex-direction: row;
+        gap: 100px;
+        align-items: center;
+    }
+
+    &__left {
+        @include flex-column;
+        gap: 45px;
+    }
+
+    &__reviews {
+        background-color: $color-purple;
+        position: relative;
+        padding-top: 40px;
+        padding-right: 35px;
+        padding-bottom: 50px;
+        border-radius: $radius-default;
+
+        > img {
+            position: absolute;
+            left: -30%;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: -100vw;
+            right: 0;
+            background: $color-purple;
+            z-index: -1;
+            border-radius: inherit;
+        }
+    }
+
+    &__review-text {
+        font-size: $font-size-base;
+        line-height: 200%;
+        color: $color-white;
+        max-width: 400px;
+        margin-bottom: 40px;
+    }
+
+    &__review-user {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 25px;
+
+        &-icon img {
+            background-color: $color-primary;
+            border-radius: $radius-round;
+        }
+
+        &-info {
+            @include flex-column;
+            gap: 10px;
+        }
+
+        &-name > p {
+            color: $color-white;
+            font-weight: 600;
+            font-size: $font-size-base;
+            line-height: 100%;
+        }
+
+        &-grade {
+            display: flex;
+            flex-direction: row;
+            gap: 25px;
+
+            > p {
+                color: $color-white;
+                font-weight: 400;
+                font-size: $font-size-small;
+                line-height: 162%;
+            }
+        }
+
+        &-stars {
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+        }
+    }
+
+    &__indicators {
+        display: flex;
+        flex-direction: row;
+        gap: 11px;
+
+        div {
+            width: 22px;
+            height: 5px;
+            border-radius: $radius-default;
+            background-color: $bg-purple-light;
+
+            &:hover {
+                background-color: $color-purple;
+            }
+        }
+    }
+
+    &__right img {
+        display: block;
+    }
+}
+
+@media (max-width: 1024px) {
+    .rating__right {
+        display: none;
+    }
+}
+
+@media (max-width: 360px) {
+    .rating h1 {
+        font-size: $font-size-medium;
+        text-align: center;
+    }
+    .rating > p {
+        text-align: center;
+    }
+
+    .rating__reviews {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    .rating__review-text {
+        max-width: 100%;
+        font-size: $font-size-small;
+    }
+
+    .rating__review-user {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .rating__review-user-grade {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .rating__review-user-stars {
+        flex-wrap: wrap;
+    }
+}

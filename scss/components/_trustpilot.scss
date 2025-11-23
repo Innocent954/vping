@@ -1,0 +1,16 @@
+.trustpilot__logos {
+    padding-top: 160px;
+    padding-bottom: 160px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .trustpilot__logos {
+        flex-direction: column;
+        gap: 50px;
+    }
+}

@@ -1,0 +1,43 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.moneyback {
+    @include flex-center;
+    margin-bottom: $spacing-large;
+
+    &__rightside {
+        @include flex-column;
+        justify-content: space-between;
+        max-height: 320px;
+        gap: $spacing-small;
+
+        > h2 {
+            @include section-heading;
+        }
+
+        > p {
+            @include section-text;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .moneyback {
+        justify-content: center;
+    }
+
+    .moneyback__rightside {
+        align-items: center;
+        text-align: center;
+    }
+
+    .moneyback__leftside {
+        display: none;
+    }
+}
+
+@media (max-width: 360px) {
+    .moneyback__rightside > h2 {
+        font-size: $font-size-medium;
+    }
+}

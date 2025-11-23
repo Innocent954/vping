@@ -1,0 +1,58 @@
+@use '../base/variables' as *;
+
+.questions {
+    margin-bottom: $spacing-large;
+
+    > h2 {
+        font-size: $font-size-xlarge;
+        font-weight: 700;
+        line-height: 130%;
+        text-align: center;
+        margin-bottom: $spacing-medium;
+    }
+
+    &__cards {
+        display: grid;
+        gap: 24px 24px;
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+    &__item {
+        padding: 30px 40px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $color-white;
+        box-shadow: $shadow-card;
+        border-radius: $radius-default;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &-text {
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 100%;
+            color: $color-text-gray;
+            white-space: normal;
+        }
+
+        &-icon {
+            display: block;
+        }
+    }
+}
+
+@media (max-width: 360px) {
+    .questions > h2 {
+        font-size: $font-size-medium;
+    }
+}
+@media (max-width: 768px) {
+    .questions__cards {
+        grid-template-columns: 1fr;
+    }
+}

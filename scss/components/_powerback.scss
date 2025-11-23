@@ -1,0 +1,43 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.powerback {
+    @include flex-center;
+    padding: $spacing-large 0;
+
+    &__leftside {
+        @include flex-column;
+        justify-content: space-between;
+        max-height: 320px;
+        gap: $spacing-small;
+
+        > h2 {
+            @include section-heading;
+        }
+
+        > p {
+            @include section-text;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .powerback {
+        justify-content: center;
+    }
+
+    .powerback__leftside {
+        align-items: center;
+        text-align: center;
+    }
+
+    .powerback__rightside {
+        display: none;
+    }
+}
+
+@media (max-width: 360px) {
+    .powerback__leftside > h2 {
+        font-size: $font-size-medium;
+    }
+}

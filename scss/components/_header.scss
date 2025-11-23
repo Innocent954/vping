@@ -1,0 +1,132 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+@media (max-width: 1024px) {
+.secondary-container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+header {
+    @include flex-center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: transparent;
+    z-index: 10;
+}
+
+.header__menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+
+
+.header__nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    > ul {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+
+        > li > a {
+            color: $color-text-nav;
+            line-height: 173%;
+            font-size: $font-size-base;
+            transition: $transition-default;
+
+            &:hover {
+                color: $color-white;
+            }
+        }
+    }
+}
+
+.header__auth {
+    @include flex-center;
+    gap: 1.5rem;
+    margin-left: auto;
+
+    &-link--login {
+        color: $color-white;
+        font-size: $font-size-base;
+        padding: 5px 10px;
+        transition: $transition-default;
+        border-radius: $radius-default;
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.175);
+        }
+    }
+
+    &-link--signup {
+        color: $color-black;
+        font-size: $font-size-base;
+        font-weight: 600;
+        border-radius: 21px;
+        border: 0;
+        padding: 10px 30px;
+        background-color: $color-primary;
+        transition: $transition-default;
+
+        &:active {
+            transform: scale(0.99);
+            transition: $transition-fast;
+        }
+    }
+}
+
+.header__burger {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin-left: 1rem;
+    border-radius: $radius-round;
+    border: 1px solid rgba($color-white, 0.35);
+    background-color: rgba($color-white, 0.08);
+    cursor: pointer;
+    transition: background-color $transition-default, border-color $transition-default;
+    line-height: 0;
+
+    img {
+        width: 22px;
+        height: 22px;
+    }
+
+    &:hover,
+    &:focus-visible {
+        background-color: rgba($color-white, 0.18);
+        border-color: rgba($color-white, 0.55);
+    }
+
+    &:focus-visible {
+        outline: 2px solid rgba($color-white, 0.55);
+        outline-offset: 2px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .header__nav {
+        display: none;
+    }
+
+    .header__burger {
+        display: flex;
+    }
+}
+
+@media (max-width: 450px) {
+    .header__auth {
+        display: none;
+    }
+}

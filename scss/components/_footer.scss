@@ -1,0 +1,67 @@
+@use '../base/variables' as *;
+
+.footer {
+    margin-top: $spacing-xl;
+
+    &__container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 60px 40px;
+    }
+
+    &__about {
+        p {
+            font-size: $font-size-base;
+            line-height: 173%;
+            color: $color-white;
+        }
+
+        > .brand {
+            margin-bottom: 50px;
+        }
+    }
+
+    ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        line-height: 280%;
+        font-size: $font-size-base;
+    }
+
+    a {
+        color: $color-text-nav;
+        transition: $transition-default;
+
+        &:hover {
+            color: $color-white;
+        }
+    }
+
+    &__socials {
+        display: flex;
+        gap: 15px;
+
+        a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: $radius-round;
+            opacity: 0.7;
+            background-color: transparent;
+
+            &:hover {
+                opacity: 1;
+                background-color: rgba(255, 255, 255, 0.12);
+                transform: translateY(-2px);
+            }
+
+            > img {
+                width: 24px;
+                height: 24px;
+            }
+        }
+    }
+}
