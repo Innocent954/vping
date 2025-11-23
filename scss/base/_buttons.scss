@@ -1,0 +1,33 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.header__cta {
+    @include flex-column;
+    justify-content: space-between;
+    max-width: 170px;
+    min-height: 65px;
+    align-items: center;
+
+    &-button {
+        @include button-base($color-primary, $color-black);
+    }
+
+    &-note {
+        line-height: 162%;
+        font-size: $font-size-xsmall;
+        color: $color-white;
+        font-weight: 400;
+    }
+}
+
+.powerback__button {
+    @include button-base($color-secondary, $color-white);
+    padding: 12px 34px;
+    max-width: 165px;
+}
+
+.recommendation__button {
+    @include button-base($color-primary, $color-black);
+    max-width: 168px;
+    display: inline-block;
+}

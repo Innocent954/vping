@@ -1,0 +1,56 @@
+@use 'variables' as *;
+
+@mixin flex-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin button-base($bg-color, $text-color) {
+    background-color: $bg-color;
+    color: $text-color;
+    padding: 12px 36px;
+    border-radius: $radius-default;
+    font-weight: 700;
+    font-size: $font-size-base;
+    
+    &:active {
+        transform: scale(0.99);
+        transition: $transition-fast;
+    }
+}
+
+@mixin section-heading {
+    font-weight: 800;
+    font-size: $font-size-xlarge;
+    line-height: 130%;
+    color: $color-black;
+    max-width: 500px;
+}
+
+@mixin section-text {
+    font-weight: 400;
+    font-size: $font-size-base;
+    line-height: 173%;
+    color: $color-text-gray;
+    max-width: 450px;
+
+    @media (max-width: 360px) {
+        font-size: $font-size-small;
+    }
+}
+
+@mixin container {
+    max-width: $container-width;
+    margin: 0 auto;
+}
+
+@mixin secondary-container {
+    max-width: $secondary-container-width;
+    margin: 0 auto;
+}
