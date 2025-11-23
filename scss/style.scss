@@ -1,0 +1,18 @@
+@use 'base/base';
+@use 'base/buttons';
+
+@use 'components/header';
+@use 'components/main-page';
+@use 'components/trustpilot';
+@use 'components/entertainment';
+@use 'components/powerback';
+@use 'components/moneyback';
+@use 'components/plans';
+@use 'components/experience';
+@use 'components/rating';
+@use 'components/questions';
+@use 'components/recommendation';
+@use 'components/footer';
+@use '404' as error_page;
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
